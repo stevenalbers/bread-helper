@@ -32,9 +32,9 @@ function App() {
             <label className="flex flex-col justify">
               <h2 className="text-xl">How much starter do you need?</h2>
               <p className="mb-2">(Make sure you account for ~30-50g extra!)</p>
-              <CountButton onChange={(e) => setOutput(e)} increments={[10, 100]} />
+              <CountButton startingValue={output} onChange={(e) => setOutput(e)} increments={[10, 100]} />
             </label>
-            <h2 className="text-xl">Which jar?</h2>
+            <h2 className="mt-2 text-xl">Which jar?</h2>
             <div className="flex justify-around">
               <label>
                 X-Large
@@ -79,13 +79,13 @@ function App() {
               </div>
               <div className="w-full max-w-96 border-1">
                 <h2 className="mt-2 text-2xl">You need</h2>
-                <div className="flex justify-around w-full">
+                <div className="flex flex-col sm:flex-row justify-around w-full p-2">
                   {Object.keys(ratio).map((ingredient) => {
                     const componentWeight = ratio[ingredient as keyof Recipe] * valuePerShare;
                     startingWeight += componentWeight;
 
                     return (
-                      <div className="flex flex-col" key={ingredient}>
+                      <div className="m-1" key={ingredient}>
                         <div className="font-bold">{ingredient}</div>
                         <div className="font-bold text-xl">{Math.round(componentWeight)}</div>
                         <div>({Math.round(startingWeight)})</div>
@@ -93,7 +93,7 @@ function App() {
                     );
                   })}
                 </div>
-                <p className="p-2">Note: The (number) is the total weight of the jar at each step</p>
+                {/* <p className="p-2">Note: The (number) is the total weight of the jar at each step</p> */}
               </div>
             </div>
           </div>
