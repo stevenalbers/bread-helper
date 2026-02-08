@@ -77,7 +77,7 @@ function App() {
                   <CountButton startingValue={ratio.Water} onChange={(e) => setRatio({ ...ratio, Water: e })} />
                 </label>
               </div>
-              <div className="w-full border-1">
+              <div className="w-full max-w-96 border-1">
                 <h2 className="mt-2 text-2xl">You need</h2>
                 <div className="flex justify-around w-full">
                   {Object.keys(ratio).map((ingredient) => {
@@ -93,7 +93,7 @@ function App() {
                     );
                   })}
                 </div>
-                <p className="mt-2">Note: the (number) is the total weight of the jar at each step</p>
+                <p className="p-2">Note: The (number) is the total weight of the jar at each step</p>
               </div>
             </div>
           </div>
